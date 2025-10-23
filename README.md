@@ -39,6 +39,46 @@ Este componente requiere:
 - React 18+
 - Tailwind CSS configurado en tu proyecto
 
+## Configuración de Tailwind CSS (IMPORTANTE)
+
+Para que los estilos del componente funcionen correctamente, **debes** agregar el paquete al `content` de tu `tailwind.config.js` o `tailwind.config.ts`:
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    // Agrega esta línea para que Tailwind procese las clases del componente:
+    './node_modules/branding-footer/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Si usas **pnpm**, también necesitas agregar esto:
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    // Para pnpm, usa esta ruta alternativa:
+    './node_modules/.pnpm/branding-footer@*/node_modules/branding-footer/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+**Sin esta configuración, el componente no mostrará los fondos de color correctamente.**
+
 ## Desarrollo
 
 ```bash
