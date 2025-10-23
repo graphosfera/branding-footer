@@ -1,0 +1,58 @@
+{
+  "name": "branding-footer",
+  "version": "0.1.0",
+  "description": "Branding Footer Next.js Component: Graphosfera",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graphosfera/branding-footer.git"
+  },
+  "keywords": [
+    "component",
+    "nextjs",
+    "footer",
+    "branding",
+    "react",
+    "tailwindcss"
+  ],
+  "author": "Graphosfera, LLC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/graphosfera/branding-footer/issues"
+  },
+  "homepage": "https://github.com/graphosfera/branding-footer#readme",
+  "peerDependencies": {
+    "next": ">=14.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.546.0",
+    "react-icons": "^5.5.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.12",
+    "@types/react": "^18.3.26",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.9.3"
+  }
+}
