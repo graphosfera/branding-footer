@@ -1,1 +1,1 @@
-# branding-footer
+# Branding Footer Component
