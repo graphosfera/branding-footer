@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import { cn } from "./lib/utils"
 import { ExternalLink } from "lucide-react"
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa"
 
@@ -11,14 +10,28 @@ interface BrandingFooterProps {
 export default function BrandingFooter({ variant = "yellow" }: BrandingFooterProps) {
   const isYellow = variant === "yellow"
 
+  const colors = {
+    yellow: {
+      bg: '#cbf120',
+      border: '#b5d91a',
+      text: '#000000',
+      textHover: '#262626',
+    },
+    gray: {
+      bg: '#171717',
+      border: 'rgba(255, 255, 255, 0.1)',
+      accent: '#cbf120',
+      accentHover: '#b5d91a',
+    }
+  }
+
   return (
     <div
-      className={cn(
-        "w-full border-t transition-colors m-0 p-0",
-        isYellow
-          ? "bg-[#cbf120] border-[#b5d91a]"
-          : "bg-neutral-900 border-white/10"
-      )}
+      className="w-full border-t transition-colors m-0 p-0"
+      style={{
+        backgroundColor: isYellow ? colors.yellow.bg : colors.gray.bg,
+        borderColor: isYellow ? colors.yellow.border : colors.gray.border,
+      }}
     >
       <div className="container max-w-screen-2xl py-6 px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex flex-col items-center justify-center gap-6 lg:flex-row lg:justify-between">
@@ -28,12 +41,8 @@ export default function BrandingFooter({ variant = "yellow" }: BrandingFooterPro
               href="https://www.linkedin.com/company/graphosfera/"
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                "transition-all hover:scale-110",
-                isYellow
-                  ? "text-black hover:text-neutral-800"
-                  : "text-[#cbf120] hover:text-[#b5d91a]"
-              )}
+              className="transition-all hover:scale-110"
+              style={{ color: isYellow ? colors.yellow.text : colors.gray.accent }}
               aria-label="LinkedIn"
             >
               <FaLinkedin className="h-6 w-6" />
@@ -42,12 +51,8 @@ export default function BrandingFooter({ variant = "yellow" }: BrandingFooterPro
               href="https://www.instagram.com/graphosfera"
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                "transition-all hover:scale-110",
-                isYellow
-                  ? "text-black hover:text-neutral-800"
-                  : "text-[#cbf120] hover:text-[#b5d91a]"
-              )}
+              className="transition-all hover:scale-110"
+              style={{ color: isYellow ? colors.yellow.text : colors.gray.accent }}
               aria-label="Instagram"
             >
               <FaInstagram className="h-6 w-6" />
@@ -56,12 +61,8 @@ export default function BrandingFooter({ variant = "yellow" }: BrandingFooterPro
               href="https://wa.me/584242999751"
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                "transition-all hover:scale-110",
-                isYellow
-                  ? "text-black hover:text-neutral-800"
-                  : "text-[#cbf120] hover:text-[#b5d91a]"
-              )}
+              className="transition-all hover:scale-110"
+              style={{ color: isYellow ? colors.yellow.text : colors.gray.accent }}
               aria-label="WhatsApp"
             >
               <FaWhatsapp className="h-6 w-6" />
@@ -72,10 +73,8 @@ export default function BrandingFooter({ variant = "yellow" }: BrandingFooterPro
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4 order-1 lg:order-2">
             <Link
               href="/"
-              className={cn(
-                "flex items-center gap-2 transition-opacity hover:opacity-80",
-                isYellow ? "text-black" : "text-neutral-200"
-              )}
+              className="flex items-center gap-2 transition-opacity hover:opacity-80"
+              style={{ color: isYellow ? colors.yellow.text : '#e5e5e5' }}
             >
               <Image
                 src="https://graphosfera.com/logo.webp"
@@ -86,22 +85,18 @@ export default function BrandingFooter({ variant = "yellow" }: BrandingFooterPro
               />
             </Link>
             <p
-              className={cn(
-                "text-sm font-medium",
-                isYellow ? "text-black" : "text-neutral-400"
-              )}
+              className="text-sm font-medium"
+              style={{ color: isYellow ? colors.yellow.text : '#a3a3a3' }}
             >
               Hecho con{" "}
-              <span className={isYellow ? "text-black" : "text-[#cbf120]"}>
+              <span style={{ color: isYellow ? colors.yellow.text : colors.gray.accent }}>
                 ♥
               </span>{" "}
               por{" "}
               <Link
                 href="https://graphosfera.com"
-                className={cn(
-                  "inline-flex items-center gap-1 font-semibold underline-offset-4 transition-all hover:underline",
-                  isYellow ? "text-black hover:text-neutral-800" : "text-[#cbf120] hover:text-[#b5d91a]"
-                )}
+                className="inline-flex items-center gap-1 font-semibold underline-offset-4 transition-all hover:underline"
+                style={{ color: isYellow ? colors.yellow.text : colors.gray.accent }}
               >
                 Graphosfera
                 <ExternalLink className="h-3.5 w-3.5" />
